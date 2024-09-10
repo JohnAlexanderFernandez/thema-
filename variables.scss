@@ -1,16 +1,32 @@
+//<@mixin fb-background() {
+ // background-image: linear-gradient(
+      //0deg,
+     // rgba(255, 255, 255, 0.15) 0%,
+     // rgba(255, 255, 255, 0.15) 100%
+   // ),
+   // linear-gradient(
+      //0deg,
+      //var(--secondary, $secondary) 100%,
+      //var(--secondary, $secondary) 100%
+    //);
+//}
+
+//$border-color: rgba(var(--primary-rgb, $primary), 0.15);
+//$background: var(--primary-low, $primary-low);
+//$header-border: rgba(var(--primary-rgb, $primary), 0.25);//
 @mixin fb-background() {
   background-image: linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(255, 255, 255, 0.15) 100%
+      rgba(0, 0, 0, 0.15) 0%,  // Se cambió de blanco a negro
+      rgba(0, 0, 0, 0.15) 100%  // Se cambió de blanco a negro
     ),
     linear-gradient(
       0deg,
-      var(--secondary, $secondary) 100%,
-      var(--secondary, $secondary) 100%
+      #f500f5 100%,  // Se cambió de azul a fucsia
+      #f500f5 100%   // Se cambió de azul a fucsia
     );
 }
 
-$border-color: rgba(var(--primary-rgb, $primary), 0.15);
-$background: var(--primary-low, $primary-low);
-$header-border: rgba(var(--primary-rgb, $primary), 0.25);
+$border-color: rgba(245, 0, 245, 0.15);  // Se cambió de azul a fucsia
+$background: #f500f5;  // Se cambió de azul a fucsia
+$header-border: rgba(245, 0, 245, 0.25);  // Se cambió de azul a fucsia
