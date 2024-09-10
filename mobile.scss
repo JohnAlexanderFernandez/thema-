@@ -1,0 +1,229 @@
+@import "common/foundation/variables";
+@import "variables";
+
+body {
+  background-color: $background;
+}
+
+tr {
+  border-color: var(--tertiary-low, $tertiary-low);
+}
+
+.extra-info-wrapper h1 {
+  margin: 0;
+}
+
+.mobile-view .mobile-nav {
+  background: transparent;
+  border: 1px solid var(--primary-low, $primary-low);
+  border-radius: 4px;
+}
+
+.list-controls .nav-pills > li {
+  border-color: var(--primary-low-mid, $primary-low-mid);
+  border-radius: 4px;
+}
+
+.select-kit.combo-box .select-kit-header {
+  border-color: var(--primary-low-mid, $primary-low-mid);
+  border-radius: 4px;
+}
+
+.period-chooser-header {
+  .selected-name {
+    font-size: 1.25em;
+  }
+}
+
+.select-kit.dropdown-select-box.period-chooser .period-chooser-header .d-icon {
+  margin-top: 0;
+}
+
+.groups-header-filters {
+  display: block;
+  margin-top: 1em;
+}
+
+.groups-header-filters-type {
+  margin-top: 1em;
+}
+
+// User
+
+.user-main .about {
+  background: transparent;
+}
+
+// Topics
+
+.post-stream {
+  article,
+  .small-action {
+    background: var(--secondary, $secondary);
+    padding: 1em;
+    border: 1px solid var(--primary-low, $primary-low);
+    border-radius: 4px;
+    margin-bottom: 10px;
+
+    .cooked .lightbox img {
+      width: 100%;
+    }
+  }
+}
+
+.post-notice {
+  padding: 0;
+}
+
+.suggested-topics-wrapper {
+  div.main-link {
+    border: none !important;
+    margin-bottom: 0.25em;
+  }
+  tr {
+    background: var(--secondary, $secondary);
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid var(--primary-low, $primary-low);
+  }
+  td {
+    box-sizing: border-box;
+    padding: 1em;
+    max-width: unset;
+    display: block;
+
+    width: 100%;
+  }
+}
+
+.category-list-item .category-topic-link .num,
+.subcategory-list-item .category-topic-link .num {
+  margin-left: auto;
+}
+
+.categories-list .category-list td {
+  flex: 1 1 auto;
+  &.main-link {
+    flex: 0 1 70%;
+  }
+  &.num.posts {
+    text-align: right;
+    a.badge-posts {
+      font-weight: normal;
+    }
+  }
+}
+
+.subcategory-list-item.category {
+  width: calc(100% - 10px);
+}
+
+.category-list-item {
+  .topic-list .num {
+    text-align: right;
+  }
+}
+
+// topic list
+
+// The mobile template is different
+// so these are the neccessary adjustments
+// to make it look like the desktop version
+
+.user-content .topic-list,
+.more-topics__list .topic-list,
+.contents > .topic-list {
+  .topic-list-data:not(.posts) {
+    display: contents;
+    max-width: unset;
+    .pull-left {
+      display: none;
+    }
+
+    .pull-right,
+    .topic-item-metadata,
+    .topic-item-stats {
+      display: contents;
+    }
+  }
+
+  .right {
+    margin: 0;
+  }
+
+  .main-link {
+    --status-width: 1.4rem;
+  }
+
+  .main-link a.title {
+    padding-top: calc(var(--custom-list-item-space) * 1.5);
+    padding-left: var(--custom-list-item-space);
+    grid-area: title;
+  }
+
+  .main-link .topic-statuses {
+    grid-area: title;
+    padding-top: calc(var(--custom-list-item-space) * 1.7);
+    padding-left: var(--custom-list-item-space);
+
+    // this is a little workaround
+    // to adjust the title position based on status icons
+    // because they don't share the same parent on mobile
+
+    &:has(a) + a.title {
+      padding-left: var(--status-width);
+    }
+
+    &:has(a + a) + a.title {
+      padding-left: calc(var(--status-width) * 2);
+    }
+
+    // usually doesn't happen
+    &:has(a + a + a) + a.title {
+      padding-left: calc(var(--status-width) * 3);
+    }
+
+    // a little extreme at this point
+    &:has(a + a + a + a) + a.title {
+      padding-left: calc(var(--status-width) * 4);
+    }
+  }
+
+  .topic-item-stats__category-tags {
+    grid-area: category;
+    margin-right: 0;
+    .discourse-tags {
+      display: none;
+    }
+    .badge-category__wrapper {
+      margin-right: 0;
+    }
+  }
+
+  .topic-excerpt {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .discourse-tags {
+    font-size: var(--font-down-2);
+  }
+
+  .topic-post-badges {
+    // these aren't a child of the title on mobile
+    // and take the place of the reply count when there are
+    // so it's not 1:1 with desktop
+    grid-area: replies;
+    box-sizing: border-box;
+    padding-top: var(--custom-list-item-space);
+    padding-bottom: var(--custom-list-item-space);
+    padding-right: var(--custom-list-item-space);
+    border-top: 1px solid var(--primary-low);
+    margin-top: var(--custom-list-item-space);
+    font-size: var(--font-down-1);
+    display: flex;
+    justify-content: end;
+    width: 100%;
+  }
+}
